@@ -1,0 +1,1424 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <!-- SEO Meta Tags -->
+  <title>Sakshi Pakle | Java Full Stack Developer &amp; Software Solutions</title>
+  <meta name="description"
+    content="Portfolio of Sakshi Pakle — Software Developer specializing in Java full-stack development and software solutions based in Pune, India. Building robust Java backends, scalable REST APIs, MySQL databases, and clean web features.">
+  <meta name="keywords"
+    content="Sakshi Pakle, Software Developer, Java Full Stack Developer, Spring Boot, REST APIs, MySQL, Pune Developer, Web Development">
+  <meta name="author" content="Sakshi Pakle">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph / Social Sharing -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Sakshi Pakle | Java Full Stack Developer &amp; Software Solutions">
+  <meta property="og:description"
+    content="Building Digital Solutions That Matter. Explore portfolio projects, services, and technical expertise.">
+  <meta property="og:image" content="./assets/profile-photo.jpg">
+  <meta property="og:url" content="https://sakshipakle.dev">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg">
+
+  <!-- Google Fonts Preconnect & Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+    rel="stylesheet">
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="./style.css">
+
+  <!-- Structured Data (JSON-LD) for SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Sakshi Pakle",
+    "jobTitle": "Software Developer",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Pune",
+      "addressRegion": "Maharashtra",
+      "addressCountry": "India"
+    },
+    "alumniOf": {
+      "@type": "CollegeOrUniversity",
+      "name": "Dr. D. Y. Patil College of Engineering and Innovation, Talegaon Dabhade"
+    },
+    "knowsAbout": ["Java", "Spring Boot", "REST APIs", "SQL", "MySQL", "Hibernate", "JDBC", "HTML", "CSS", "JavaScript", "Postman", "Git"]
+  }
+  </script>
+</head>
+
+<body>
+  <!-- Skip to main content for accessibility -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Notification Banner / Toast Container -->
+  <div id="toast" class="toast" role="alert" aria-live="polite"></div>
+
+  <!-- STICKY NAVIGATION BAR -->
+  <header class="site-header" id="header">
+    <div class="container header-container">
+      <a href="#hero" class="brand-logo" aria-label="Sakshi Pakle Home">
+        <span class="logo-mark">SP</span>
+        <span class="logo-text">Sakshi<span class="text-accent">.</span>Pakle</span>
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <nav class="desktop-nav" aria-label="Main Navigation">
+        <ul class="nav-list">
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#services" class="nav-link">Services</a></li>
+          <li><a href="#skills" class="nav-link">Skills</a></li>
+          <li><a href="#projects" class="nav-link">Projects</a></li>
+          <li><a href="#experience" class="nav-link">Experience</a></li>
+          <li><a href="#process" class="nav-link">Process</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Header Action Buttons -->
+      <div class="header-actions">
+        <a href="./assets/resume.pdf" class="btn btn-sm btn-outline resume-download-btn"
+          download="Sakshi_Pakle_Resume.pdf" title="Download Resume (PDF)">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+          </svg>
+          <span>Resume</span>
+        </a>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle mobile menu" aria-expanded="false"
+          aria-controls="mobileMenu">
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer Navigation -->
+    <div class="mobile-nav" id="mobileMenu" aria-hidden="true">
+      <nav class="mobile-nav-inner" aria-label="Mobile Navigation">
+        <ul class="mobile-nav-list">
+          <li><a href="#about" class="mobile-nav-link">About Me</a></li>
+          <li><a href="#services" class="mobile-nav-link">Services</a></li>
+          <li><a href="#skills" class="mobile-nav-link">Skills &amp; Tech</a></li>
+          <li><a href="#projects" class="mobile-nav-link">Featured Projects</a></li>
+          <li><a href="#experience" class="mobile-nav-link">Experience &amp; Education</a></li>
+          <li><a href="#process" class="mobile-nav-link">Development Process</a></li>
+          <li><a href="#contact" class="mobile-nav-link">Contact</a></li>
+        </ul>
+        <div class="mobile-nav-cta">
+          <a href="./assets/resume.pdf" class="btn btn-primary btn-block resume-download-btn"
+            download="Sakshi_Pakle_Resume.pdf">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            Download Resume (PDF)
+          </a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main id="main-content">
+
+    <!-- 1. HERO SECTION -->
+    <section class="hero-section" id="hero" data-parallax-container>
+      <!-- Background 3D Parallax Shapes -->
+      <div class="hero-bg-shapes" aria-hidden="true">
+        <div class="geo-shape shape-cube cube-1" data-parallax-depth="0.04"></div>
+        <div class="geo-shape shape-pyramid pyr-1" data-parallax-depth="-0.03"></div>
+        <div class="geo-shape shape-ring ring-bg" data-parallax-depth="0.06"></div>
+      </div>
+
+      <div class="container hero-container">
+        <div class="hero-content" data-parallax-depth="0.02">
+          <!-- Availability Badge -->
+          <div class="badge hero-badge reveal">
+            <span class="badge-dot"></span>
+            <span>Available for Full-Time Roles &amp; Projects</span>
+          </div>
+
+          <!-- Main Headline -->
+          <h1 class="hero-title reveal">
+            Building Digital <span class="text-gradient">Solutions That Matter</span>.
+          </h1>
+
+          <!-- Subtitle / Profile Intro -->
+          <p class="hero-description reveal">
+            I'm <strong class="text-white">Sakshi Pakle</strong>, a results-oriented <strong>Software Developer</strong>
+            based in Pune, India. I specialize in designing robust Java backends, scalable REST APIs, optimized MySQL
+            databases, and clean, responsive web user experiences.
+          </p>
+
+          <!-- Hero CTA Actions -->
+          <div class="hero-cta-group reveal">
+            <a href="#projects" class="btn btn-primary" id="heroExploreBtn">
+              <span>Explore Projects</span>
+              <svg class="btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                aria-hidden="true">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+
+            <a href="#contact" class="btn btn-secondary" id="heroContactBtn">
+              <span>Get In Touch</span>
+              <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                aria-hidden="true">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22 6 12 13 2 6"></polyline>
+              </svg>
+            </a>
+
+            <a href="./assets/resume.pdf" class="btn btn-outline resume-download-btn" id="heroResumeBtn"
+              download="Sakshi_Pakle_Resume.pdf" title="Download Resume (PDF)">
+              <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+              <span>Download Resume</span>
+            </a>
+          </div>
+
+          <!-- Quick Highlights Bar -->
+          <div class="hero-highlights reveal">
+            <div class="highlight-item" data-tilt-subtle>
+              <div class="highlight-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+              </div>
+              <div>
+                <span class="highlight-label">Experience</span>
+                <p class="highlight-value">Software Developer @ Innovexis</p>
+              </div>
+            </div>
+
+            <div class="highlight-item" data-tilt-subtle>
+              <div class="highlight-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+              </div>
+              <div>
+                <span class="highlight-label">Location</span>
+                <p class="highlight-value">Pune, Maharashtra, India</p>
+              </div>
+            </div>
+
+            <div class="highlight-item" data-tilt-subtle>
+              <div class="highlight-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="16 18 22 12 16 6"></polyline>
+                  <polyline points="8 6 2 12 8 18"></polyline>
+                </svg>
+              </div>
+              <div>
+                <span class="highlight-label">Core Tech</span>
+                <p class="highlight-value">Java • Spring Boot • SQL • REST</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Visual Profile Card with 3D Depth & Orb -->
+        <div class="hero-visual reveal" id="heroVisual" data-parallax-depth="-0.04">
+          <!-- 3D Gyroscopic Orbital Scene -->
+          <div class="hero-3d-scene" aria-hidden="true">
+            <div class="orb-container">
+              <div class="orb-core"></div>
+              <div class="orb-ring ring-1"></div>
+              <div class="orb-ring ring-2"></div>
+              <div class="orb-ring ring-3"></div>
+            </div>
+          </div>
+
+          <div class="profile-card" data-tilt data-tilt-max="10">
+            <div class="profile-glow"></div>
+            <div class="profile-card-inner">
+              <div class="avatar-container">
+                <div class="avatar-wrapper">
+                  <img src="./assets/profile-photo.jpg" alt="Sakshi Pakle - Software Developer"
+                    class="profile-avatar" width="190" height="190" loading="eager">
+                </div>
+              </div>
+
+              <div class="profile-info">
+                <h2 class="profile-name">Sakshi Pakle</h2>
+                <p class="profile-role">Software Developer</p>
+                <div class="profile-location">
+                  <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                  </svg>
+                  <span>Pune, Maharashtra, India</span>
+                </div>
+
+                <div class="profile-tags">
+                  <span class="tag">Java</span>
+                  <span class="tag">Spring Boot</span>
+                  <span class="tag">MySQL</span>
+                  <span class="tag">REST APIs</span>
+                  <span class="tag">Web UI</span>
+                </div>
+              </div>
+
+              <!-- Terminal style code snippet banner -->
+              <div class="code-badge">
+                <div class="code-badge-header">
+                  <span class="dot red"></span>
+                  <span class="dot yellow"></span>
+                  <span class="dot green"></span>
+                  <span class="code-badge-title">DeveloperProfile.java</span>
+                </div>
+                <code><span class="keyword">public class</span> <span class="type">Developer</span> {<br>&nbsp;&nbsp;<span class="type">String</span> role = <span class="string">"Software Developer"</span>;<br>&nbsp;&nbsp;<span class="type">String</span> status = <span class="string">"Available for Full-Time Roles &amp; Projects"</span>;<br>}</code>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. ABOUT ME SECTION -->
+    <section class="section about-section" id="about">
+      <div class="container">
+        <div class="section-header text-center reveal">
+          <span class="section-eyebrow">Professional Profile</span>
+          <h2 class="section-title">About Me</h2>
+          <p class="section-subtitle">Combining theoretical computer engineering fundamentals with practical enterprise
+            Java development.</p>
+        </div>
+
+        <div class="about-grid code-matrix" id="codeMatrix">
+          <!-- Card 1: Who I Am (Code Matrix) -->
+          <div class="about-narrative card reveal" id="cardWhoIAm">
+            <div class="badge hero-badge" style="width: fit-content; margin-bottom: 6px;">
+              <span class="badge-dot"></span>
+              <span>Available for Full-Time Roles &amp; Projects</span>
+            </div>
+            <h3 class="narrative-heading">Who I Am — <span class="text-gradient">Software Developer</span></h3>
+            <p>
+              I am a results-oriented <strong>Software Developer</strong> specializing in building and maintaining Java
+              backends, RESTful APIs, and database-driven web features. I hold a <strong>Bachelor of Engineering in
+                Computer Engineering</strong> from <strong>Dr. D. Y. Patil College of Engineering and Innovation,
+                Talegaon Dabhade, Pune</strong>. My engineering journey is defined by a dedication to writing clean,
+              reliable software that solves real-world challenges.
+            </p>
+            <p>
+              Through practical academic projects and hands-on professional software development experience at
+              <strong>Innovexis</strong>, I have developed expertise in the Java ecosystem — from <strong>Core
+                Java</strong> patterns and <strong>Spring Boot microservice architectures</strong> to <strong>relational
+                database modeling with MySQL</strong> and responsive front-end engineering.
+            </p>
+            <p>
+              Whether collaborating on cross-functional teams or building independent software services, I prioritize
+              maintainable architectures, type-safe API contracts, and performant database queries.
+            </p>
+
+            <div class="about-key-points">
+              <div class="key-point">
+                <span class="point-icon">✓</span>
+                <div>
+                  <strong>Backend Architecture:</strong> Structured Java, Spring Boot, Hibernate/JPA, and RESTful
+                  service design.
+                </div>
+              </div>
+              <div class="key-point">
+                <span class="point-icon">✓</span>
+                <div>
+                  <strong>Relational Databases:</strong> Schema design, query writing, JDBC transactions, and data
+                  integrity in MySQL.
+                </div>
+              </div>
+              <div class="key-point">
+                <span class="point-icon">✓</span>
+                <div>
+                  <strong>End-to-End Delivery:</strong> Bridging responsive front-end interfaces with well-tested server
+                  endpoints.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Highlights Pillars -->
+          <div class="about-pillars">
+            <div class="pillar-card card reveal">
+              <div class="pillar-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                  <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+                </svg>
+              </div>
+              <div class="pillar-content">
+                <h4>Engineering Education</h4>
+                <p class="text-muted">BE in Computer Engineering from Dr. D. Y. Patil College of Engineering and
+                  Innovation, Talegaon Dabhade, Pune.</p>
+              </div>
+            </div>
+
+            <div class="pillar-card card reveal">
+              <div class="pillar-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                  <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                </svg>
+              </div>
+              <div class="pillar-content">
+                <h4>Practical Industry Experience</h4>
+                <p class="text-muted">Software Developer at Innovexis (Jan 2026 – Present), building and
+                  maintaining Java backends, RESTful APIs, and database features.</p>
+              </div>
+            </div>
+
+            <div class="pillar-card card reveal">
+              <div class="pillar-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </div>
+              <div class="pillar-content">
+                <h4>Engineering Mindset</h4>
+                <p class="text-muted">Focus on scalable code design, thorough Postman API validation, clean version
+                  control, and continuous improvement.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. MY SERVICES SECTION -->
+    <section class="section services-section" id="services">
+      <div class="container">
+        <div class="section-header text-center reveal">
+          <span class="section-eyebrow">Solutions &amp; Capabilities</span>
+          <h2 class="section-title">My Development Services</h2>
+          <p class="section-subtitle">Professional engineering services for hiring managers, engineering teams, and
+            freelance clients.</p>
+        </div>
+
+        <div class="services-grid">
+          <!-- Service 1 -->
+          <div class="service-card card reveal">
+            <div class="service-number">01</div>
+            <div class="service-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                <line x1="8" y1="21" x2="16" y2="21"></line>
+                <line x1="12" y1="17" x2="12" y2="21"></line>
+              </svg>
+            </div>
+            <h3 class="service-title">Responsive Website Development</h3>
+            <p class="service-description">
+              Custom, mobile-friendly websites built with semantic HTML5, modern CSS3, and vanilla JavaScript. Clean
+              code, responsive cross-browser layouts, and fast loading performance.
+            </p>
+            <ul class="service-features">
+              <li>Mobile-first &amp; tablet responsive</li>
+              <li>Semantic HTML5 &amp; accessible navigation</li>
+              <li>Lightweight, framework-free performance</li>
+            </ul>
+          </div>
+
+          <!-- Service 2 -->
+          <div class="service-card card reveal">
+            <div class="service-number">02</div>
+            <div class="service-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="12 2 2 7 12 12 22 7 12 2">
+                  <polyline points="2 17 12 22 22 17"></polyline>
+                  <polyline points="2 12 12 17 22 12"></polyline>
+                </polygon>
+              </svg>
+            </div>
+            <h3 class="service-title">Java Application Development</h3>
+            <p class="service-description">
+              Developing structured, object-oriented Java applications leveraging core Java principles, robust class
+              hierarchies, modular architecture, and reliable exception handling.
+            </p>
+            <ul class="service-features">
+              <li>Object-Oriented Programming (OOP)</li>
+              <li>Multithreading &amp; Collections Framework</li>
+              <li>Maintainable enterprise code standards</li>
+            </ul>
+          </div>
+
+          <!-- Service 3 -->
+          <div class="service-card card reveal">
+            <div class="service-number">03</div>
+            <div class="service-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path>
+                <line x1="4" y1="22" x2="4" y2="15"></line>
+              </svg>
+            </div>
+            <h3 class="service-title">Java Backend &amp; REST API Development</h3>
+            <p class="service-description">
+              Engineering scalable server-side systems using Spring Boot, Hibernate/JPA, and REST architectural
+              standards. Well-documented endpoints with structured JSON responses.
+            </p>
+            <ul class="service-features">
+              <li>Spring Boot RESTful microservices</li>
+              <li>Hibernate / JPA entity mapping</li>
+              <li>CRUD operations &amp; business logic layers</li>
+            </ul>
+          </div>
+
+          <!-- Service 4 -->
+          <div class="service-card card reveal">
+            <div class="service-number">04</div>
+            <div class="service-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+                <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+                <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+              </svg>
+            </div>
+            <h3 class="service-title">MySQL Database Integration</h3>
+            <p class="service-description">
+              Designing relational database schemas, creating normalized tables, configuring JDBC connections, and
+              writing optimized SQL queries for high-integrity data operations.
+            </p>
+            <ul class="service-features">
+              <li>Relational schema &amp; foreign key modeling</li>
+              <li>JDBC connectivity &amp; connection pooling</li>
+              <li>Query tuning &amp; transactional safety</li>
+            </ul>
+          </div>
+
+          <!-- Service 5 -->
+          <div class="service-card card reveal">
+            <div class="service-number">05</div>
+            <div class="service-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="8" x2="12" y2="12"></line>
+                <line x1="12" y1="16" x2="12.01" y2="16"></line>
+              </svg>
+            </div>
+            <h3 class="service-title">Basic Debugging &amp; API Testing</h3>
+            <p class="service-description">
+              Rigorous endpoint verification using Postman test suites. Troubleshooting application bugs, analyzing
+              stack traces in Eclipse/IDE, and validating payload contracts.
+            </p>
+            <ul class="service-features">
+              <li>Postman endpoint validation &amp; environments</li>
+              <li>HTTP status codes &amp; error response verification</li>
+              <li>Systematic bug reproduction and fixing</li>
+            </ul>
+          </div>
+
+          <!-- Service 6 -->
+          <div class="service-card card reveal">
+            <div class="service-number">06</div>
+            <div class="service-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+            </div>
+            <h3 class="service-title">Personal Portfolio Website Development</h3>
+            <p class="service-description">
+              Crafting bespoke portfolio websites for developers, engineers, and professionals. Elegant layouts,
+              responsive designs, and clean code that helps you stand out to clients and recruiters.
+            </p>
+            <ul class="service-features">
+              <li>Modern dark-mode &amp; branded design systems</li>
+              <li>Project showcasing &amp; skill taxonomy</li>
+              <li>SEO meta setup &amp; zero bloat dependencies</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. SKILLS AND TECHNOLOGIES SECTION -->
+    <section class="section skills-section" id="skills">
+      <div class="container">
+        <div class="section-header text-center reveal">
+          <span class="section-eyebrow">Technical Competencies</span>
+          <h2 class="section-title">Skills &amp; Technologies</h2>
+          <p class="section-subtitle">A focused stack honed through engineering coursework, hands-on projects, and
+            professional software development experience.</p>
+        </div>
+
+        <div class="skills-grid">
+          <!-- Category 1: Backend Engineering -->
+          <div class="skill-category card reveal">
+            <div class="category-header">
+              <div class="category-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
+                  <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
+                  <line x1="6" y1="6" x2="6.01" y2="6"></line>
+                  <line x1="6" y1="18" x2="6.01" y2="18"></line>
+                </svg>
+              </div>
+              <h3 class="category-title">Backend &amp; Core Java</h3>
+            </div>
+            <p class="category-description">Server-side architecture, enterprise patterns, and framework tooling.</p>
+            <div class="skill-tags">
+              <div class="skill-badge"><span class="badge-tech">Java</span><span class="badge-sub">Core &amp; OOP</span>
+              </div>
+              <div class="skill-badge"><span class="badge-tech">Spring Boot</span><span class="badge-sub">REST &amp;
+                  MVC</span></div>
+              <div class="skill-badge"><span class="badge-tech">REST APIs</span><span class="badge-sub">Web
+                  Services</span></div>
+              <div class="skill-badge"><span class="badge-tech">Hibernate / JPA</span><span class="badge-sub">ORM</span>
+              </div>
+              <div class="skill-badge"><span class="badge-tech">JDBC</span><span class="badge-sub">Connectivity</span>
+              </div>
+              <div class="skill-badge"><span class="badge-tech">Maven</span><span class="badge-sub">Build Tool</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Category 2: Database & Storage -->
+          <div class="skill-category card reveal">
+            <div class="category-header">
+              <div class="category-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+                  <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+                  <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+                </svg>
+              </div>
+              <h3 class="category-title">Database Management</h3>
+            </div>
+            <p class="category-description">Relational persistence, transactional safety, and query design.</p>
+            <div class="skill-tags">
+              <div class="skill-badge"><span class="badge-tech">MySQL</span><span class="badge-sub">RDBMS</span></div>
+              <div class="skill-badge"><span class="badge-tech">SQL</span><span class="badge-sub">Queries &amp;
+                  DDL/DML</span></div>
+              <div class="skill-badge"><span class="badge-tech">Schema Design</span><span
+                  class="badge-sub">Normalization</span></div>
+              <div class="skill-badge"><span class="badge-tech">Data Integrity</span><span class="badge-sub">Constraints
+                  &amp; FK</span></div>
+            </div>
+          </div>
+
+          <!-- Category 3: Frontend Web Development -->
+          <div class="skill-category card reveal">
+            <div class="category-header">
+              <div class="category-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="16 18 22 12 16 6"></polyline>
+                  <polyline points="8 6 2 12 8 18"></polyline>
+                </svg>
+              </div>
+              <h3 class="category-title">Frontend Development</h3>
+            </div>
+            <p class="category-description">Clean, user-centric interfaces and responsive client layouts.</p>
+            <div class="skill-tags">
+              <div class="skill-badge"><span class="badge-tech">HTML5</span><span class="badge-sub">Semantic
+                  Layouts</span></div>
+              <div class="skill-badge"><span class="badge-tech">CSS3</span><span class="badge-sub">Grid, Flex &amp;
+                  Media</span></div>
+              <div class="skill-badge"><span class="badge-tech">JavaScript</span><span class="badge-sub">Vanilla &amp;
+                  ES6+</span></div>
+              <div class="skill-badge"><span class="badge-tech">Basic React</span><span class="badge-sub">Components
+                  &amp; Props</span></div>
+              <div class="skill-badge"><span class="badge-tech">Responsive Design</span><span class="badge-sub">Mobile
+                  First</span></div>
+            </div>
+          </div>
+
+          <!-- Category 4: Tools & Workflow -->
+          <div class="skill-category card reveal">
+            <div class="category-header">
+              <div class="category-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="3"></circle>
+                  <path
+                    d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z">
+                  </path>
+                </svg>
+              </div>
+              <h3 class="category-title">Tools &amp; Development Environment</h3>
+            </div>
+            <p class="category-description">Version control, debugging, testing, and developer environments.</p>
+            <div class="skill-tags">
+              <div class="skill-badge"><span class="badge-tech">Postman</span><span class="badge-sub">API Testing</span>
+              </div>
+              <div class="skill-badge"><span class="badge-tech">Git</span><span class="badge-sub">Version Control</span>
+              </div>
+              <div class="skill-badge"><span class="badge-tech">GitHub</span><span
+                  class="badge-sub">Collaboration</span></div>
+              <div class="skill-badge"><span class="badge-tech">Eclipse IDE</span><span class="badge-sub">Java
+                  Workspace</span></div>
+              <div class="skill-badge"><span class="badge-tech">VS Code</span><span class="badge-sub">Web &amp;
+                  Scripts</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. FEATURED PROJECTS SECTION -->
+    <section class="section projects-section" id="projects">
+      <div class="container">
+        <div class="section-header text-center reveal">
+          <span class="section-eyebrow">Portfolio Works</span>
+          <h2 class="section-title">Featured Projects</h2>
+          <p class="section-subtitle">Real-world software applications and APIs showcasing full-stack Java and database
+            engineering.</p>
+        </div>
+
+        <div class="projects-grid">
+          <!-- Project 1: Hospital Management System -->
+          <article class="project-card card reveal">
+            <div class="project-image-wrapper">
+              <img src="./assets/project-hospital.svg"
+                alt="Hospital Management System UI &amp; Architecture" class="project-image" loading="lazy">
+              <div class="project-tag-overlay">
+                <span class="badge-pill">Enterprise Java</span>
+              </div>
+            </div>
+            <div class="project-body">
+              <div class="project-meta">
+                <span class="project-category">Full Stack System</span>
+              </div>
+              <h3 class="project-title">Hospital Management System</h3>
+              <p class="project-description">
+                A comprehensive healthcare administration system built with <strong>Java, Spring Boot, and
+                  MySQL</strong>. Facilitates patient registration, appointment scheduling, doctor record management,
+                bed allocation, and diagnostic billing records.
+              </p>
+
+              <div class="project-tech-stack">
+                <span class="tech-chip">Java</span>
+                <span class="tech-chip">Spring Boot</span>
+                <span class="tech-chip">MySQL</span>
+                <span class="tech-chip">Hibernate</span>
+                <span class="tech-chip">HTML/CSS</span>
+              </div>
+
+              <div class="project-actions">
+                <a href="https://github.com/sakshipakle/HospitalManagementSystem" target="_blank"
+                  rel="noopener noreferrer" class="btn btn-sm btn-outline"
+                  data-project="Hospital Management System" title="View Hospital Management System on GitHub">
+                  <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <path
+                      d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                    </path>
+                  </svg>
+                  <span>View Code (GitHub)</span>
+                </a>
+                <button type="button" class="btn btn-sm btn-secondary project-detail-btn" data-target="project-modal-1">
+                  <span>Architecture Details</span>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 2: Task Management REST API -->
+          <article class="project-card card reveal">
+            <div class="project-image-wrapper">
+              <img src="./assets/project-task-api.svg"
+                alt="Task Management REST API Postman &amp; Endpoints" class="project-image" loading="lazy">
+              <div class="project-tag-overlay">
+                <span class="badge-pill">Backend REST API</span>
+              </div>
+            </div>
+            <div class="project-body">
+              <div class="project-meta">
+                <span class="project-category">Microservice Architecture</span>
+              </div>
+              <h3 class="project-title">Task Management System</h3>
+              <p class="project-description">
+                A clean, scalable RESTful backend service built using <strong>Spring Boot and JPA</strong>. Implements
+                full CRUD operations, category filters, priority queues, robust input validation, and structured error
+                handling for third-party consumers.
+              </p>
+
+              <div class="project-tech-stack">
+                <span class="tech-chip">Java</span>
+                <span class="tech-chip">Spring Boot</span>
+                <span class="tech-chip">REST APIs</span>
+                <span class="tech-chip">Postman</span>
+                <span class="tech-chip">Maven</span>
+              </div>
+
+              <div class="project-actions">
+                <a href="https://github.com/sakshipakle/Task_Management_System" target="_blank"
+                  rel="noopener noreferrer" class="btn btn-sm btn-outline"
+                  data-project="Task Management System" title="View Task Management System on GitHub">
+                  <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <path
+                      d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                    </path>
+                  </svg>
+                  <span>View Code (GitHub)</span>
+                </a>
+                <button type="button" class="btn btn-sm btn-secondary project-detail-btn" data-target="project-modal-2">
+                  <span>API Specification</span>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 3: Food Delivery Application -->
+          <article class="project-card card reveal">
+            <div class="project-image-wrapper">
+              <img src="./assets/project-food-delivery.svg" alt="Food Delivery Application UI"
+                class="project-image" loading="lazy">
+              <div class="project-tag-overlay">
+                <span class="badge-pill">Java &amp; JDBC</span>
+              </div>
+            </div>
+            <div class="project-body">
+              <div class="project-meta">
+                <span class="project-category">Database &amp; Application</span>
+              </div>
+              <h3 class="project-title">Food Delivery System</h3>
+              <p class="project-description">
+                A desktop-enabled food ordering application engineered with <strong>Java, JDBC, and MySQL</strong>.
+                Manages user authentication, restaurant menus, cart calculations, order placement, and persistent
+                transactional record updates.
+              </p>
+
+              <div class="project-tech-stack">
+                <span class="tech-chip">Java</span>
+                <span class="tech-chip">JDBC</span>
+                <span class="tech-chip">MySQL</span>
+                <span class="tech-chip">SQL</span>
+                <span class="tech-chip">Eclipse IDE</span>
+              </div>
+
+              <div class="project-actions">
+                <a href="https://github.com/sakshipakle/FoodDeliverySystem" target="_blank"
+                  rel="noopener noreferrer" class="btn btn-sm btn-outline"
+                  data-project="Food Delivery System" title="View Food Delivery System on GitHub">
+                  <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <path
+                      d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                    </path>
+                  </svg>
+                  <span>View Code (GitHub)</span>
+                </a>
+                <button type="button" class="btn btn-sm btn-secondary project-detail-btn" data-target="project-modal-3">
+                  <span>Architecture Details</span>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 4: Crop Yield Prediction -->
+          <article class="project-card card reveal">
+            <div class="project-image-wrapper">
+              <img src="./assets/project-crop-prediction.svg" alt="Crop Yield Prediction analytics"
+                class="project-image" loading="lazy">
+              <div class="project-tag-overlay">
+                <span class="badge-pill">Analytics &amp; Data</span>
+              </div>
+            </div>
+            <div class="project-body">
+              <div class="project-meta">
+                <span class="project-category">Applied Data Science</span>
+              </div>
+              <h3 class="project-title">Crop Yield Prediction</h3>
+              <p class="project-description">
+                An agricultural analytics project designed to evaluate environmental factors — including soil nitrogen,
+                phosphorus, potassium, temperature, and rainfall — to forecast optimal crop selection and seasonal
+                agricultural productivity.
+              </p>
+
+              <div class="project-tech-stack">
+                <span class="tech-chip">Data Modeling</span>
+                <span class="tech-chip">Java/Python</span>
+                <span class="tech-chip">SQL</span>
+                <span class="tech-chip">Algorithms</span>
+              </div>
+
+              <div class="project-actions">
+                <a href="https://github.com/sakshipakle/Crop-Yield-Prediction" target="_blank"
+                  rel="noopener noreferrer" class="btn btn-sm btn-outline" data-project="Crop Yield Prediction"
+                  title="View Crop Yield Prediction on GitHub">
+                  <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <path
+                      d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                    </path>
+                  </svg>
+                  <span>View Code (GitHub)</span>
+                </a>
+                <button type="button" class="btn btn-sm btn-secondary project-detail-btn" data-target="project-modal-4">
+                  <span>Architecture Details</span>
+                </button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. EXPERIENCE AND EDUCATION SECTION -->
+    <section class="section experience-section" id="experience">
+      <div class="container">
+        <div class="section-header text-center reveal">
+          <span class="section-eyebrow">Career Timeline</span>
+          <h2 class="section-title">Experience &amp; Education</h2>
+          <p class="section-subtitle">My professional engineering progression and academic foundations.</p>
+        </div>
+
+        <div class="timeline-container">
+          <!-- Timeline Item 1: Experience -->
+          <div class="timeline-card card reveal">
+            <div class="timeline-marker">
+              <span class="marker-dot"></span>
+              <span class="marker-line"></span>
+            </div>
+            <div class="timeline-content">
+              <div class="timeline-badge-group">
+                <span class="badge-role">Software Developer</span>
+                <span class="badge-duration">January 2026 – Present</span>
+              </div>
+              <h3 class="timeline-entity">Innovexis</h3>
+              <p class="timeline-location">
+                <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+                Pune, Maharashtra, India
+              </p>
+              <p class="timeline-summary">
+                Software Developer at Innovexis, building and maintaining enterprise Java services, RESTful APIs, and
+                database communication.
+              </p>
+              <ul class="timeline-highlights">
+                <li>Developed and maintained backend modules using Java and Spring Boot.</li>
+                <li>Designed and tested REST API endpoints using Postman to ensure dependable data transfer.</li>
+                <li>Integrated MySQL databases via Hibernate/JPA and JDBC, ensuring normalized schemas and query
+                  performance.</li>
+                <li>Utilized Git for version control and participated in collaborative developer code reviews.</li>
+              </ul>
+              <div class="timeline-tags">
+                <span class="tag">Java</span>
+                <span class="tag">Spring Boot</span>
+                <span class="tag">REST APIs</span>
+                <span class="tag">MySQL</span>
+                <span class="tag">Postman</span>
+                <span class="tag">Git</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Timeline Item 2: Education -->
+          <div class="timeline-card card reveal">
+            <div class="timeline-marker">
+              <span class="marker-dot"></span>
+            </div>
+            <div class="timeline-content">
+              <div class="timeline-badge-group">
+                <span class="badge-role">BE in Computer Engineering</span>
+                <span class="badge-duration">Undergraduate Degree</span>
+              </div>
+              <h3 class="timeline-entity">Dr. D. Y. Patil College of Engineering and Innovation</h3>
+              <p class="timeline-location">
+                <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+                Talegaon Dabhade, Pune, Maharashtra
+              </p>
+              <p class="timeline-summary">
+                Completed rigorous coursework covering software engineering principles, algorithms, operating systems,
+                and computer architecture.
+              </p>
+              <ul class="timeline-highlights">
+                <li><strong>Core Coursework:</strong> Data Structures &amp; Algorithms, Object-Oriented Programming,
+                  Database Management Systems (DBMS), Operating Systems, Web Technologies.</li>
+                <li><strong>Technical Projects:</strong> Led academic software development projects involving full-stack
+                  Java solutions, relational database modeling, and predictive systems.</li>
+                <li><strong>Practical Labs:</strong> Hands-on implementation of SQL schemas, Java multi-threading, and
+                  client-server architectures.</li>
+              </ul>
+              <div class="timeline-tags">
+                <span class="tag">Computer Engineering</span>
+                <span class="tag">Algorithms</span>
+                <span class="tag">Database Architecture</span>
+                <span class="tag">Software Engineering</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. MY DEVELOPMENT PROCESS SECTION -->
+    <section class="section process-section" id="process">
+      <div class="container">
+        <div class="section-header text-center reveal">
+          <span class="section-eyebrow">Work Methodology</span>
+          <h2 class="section-title">My Development Process</h2>
+          <p class="section-subtitle">A structured, disciplined approach to producing reliable and maintainable digital
+            solutions.</p>
+        </div>
+
+        <div class="process-grid">
+          <!-- Step 1 -->
+          <div class="process-step card reveal">
+            <div class="step-badge">Phase 01</div>
+            <div class="step-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+              </svg>
+            </div>
+            <h3 class="step-title">Requirement &amp; Architecture Planning</h3>
+            <p class="step-description">
+              Clarifying business requirements, mapping user workflows, and defining software modularity before writing
+              code to prevent architectural debt.
+            </p>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="process-step card reveal">
+            <div class="step-badge">Phase 02</div>
+            <div class="step-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+                <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+                <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+              </svg>
+            </div>
+            <h3 class="step-title">Database &amp; API Schema Design</h3>
+            <p class="step-description">
+              Structuring relational MySQL schemas with proper primary/foreign keys and designing intuitive REST
+              endpoints with clean HTTP verbs and status codes.
+            </p>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="process-step card reveal">
+            <div class="step-badge">Phase 03</div>
+            <div class="step-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="16 18 22 12 16 6"></polyline>
+                <polyline points="8 6 2 12 8 18"></polyline>
+              </svg>
+            </div>
+            <h3 class="step-title">Clean Implementation &amp; Integration</h3>
+            <p class="step-description">
+              Writing structured, readable Java/Spring Boot code following OOP principles, integrating ORM layers, and
+              connecting with responsive client interfaces.
+            </p>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="process-step card reveal">
+            <div class="step-badge">Phase 04</div>
+            <div class="step-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path
+                  d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z">
+                </path>
+              </svg>
+            </div>
+            <h3 class="step-title">Rigorous Testing &amp; Postman Validation</h3>
+            <p class="step-description">
+              Testing API payloads, validating boundary conditions, verifying responsive front-end cross-browser
+              layouts, and eliminating runtime bottlenecks.
+            </p>
+          </div>
+
+          <!-- Step 5 -->
+          <div class="process-step card reveal">
+            <div class="step-badge">Phase 05</div>
+            <div class="step-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+              </svg>
+            </div>
+            <h3 class="step-title">Documentation &amp; Seamless Delivery</h3>
+            <p class="step-description">
+              Delivering well-organized code repositories with clear READMEs, setup instructions, and deployment guides
+              for smooth handoff or production launch.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. CONTACT SECTION -->
+    <section class="section contact-section" id="contact">
+      <div class="container">
+        <div class="section-header text-center reveal">
+          <span class="section-eyebrow">Start A Conversation</span>
+          <h2 class="section-title">Get In Touch</h2>
+          <p class="section-subtitle">Interested in hiring me for a full-time role or discussing a freelance development
+            project? Let's connect.</p>
+        </div>
+
+        <div class="contact-grid">
+          <!-- Left: Contact Details Card -->
+          <div class="contact-info-card card reveal">
+            <h3 class="contact-info-heading">Direct Contact Information</h3>
+            <p class="text-muted">
+              Feel free to reach out directly via email or connect with me on LinkedIn and GitHub. I respond promptly to
+              professional inquiries.
+            </p>
+
+            <div class="contact-details-list">
+              <!-- Location -->
+              <div class="contact-item">
+                <div class="contact-item-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                  </svg>
+                </div>
+                <div>
+                  <span class="contact-label">Location</span>
+                  <p class="contact-value">Pune, Maharashtra, India</p>
+                </div>
+              </div>
+
+              <!-- Email -->
+              <div class="contact-item">
+                <div class="contact-item-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                  </svg>
+                </div>
+                <div>
+                  <span class="contact-label">Email Address</span>
+                  <a href="mailto:sakshipakle.dev@gmail.com" class="contact-link"
+                    id="emailContactLink">sakshipakle.dev@gmail.com</a>
+                </div>
+              </div>
+
+              <!-- Education -->
+              <div class="contact-item">
+                <div class="contact-item-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                    <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+                  </svg>
+                </div>
+                <div>
+                  <span class="contact-label">Education</span>
+                  <p class="contact-value">BE Computer Engineering, Dr. D. Y. Patil College of Engineering and
+                    Innovation</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Social Links Group -->
+            <div class="contact-social-group">
+              <span class="social-group-label">Connect Professionally</span>
+              <div class="social-buttons">
+                <a href="https://linkedin.com/in/sakshi-pakle-placeholder" target="_blank" rel="noopener noreferrer"
+                  class="btn btn-outline btn-social" aria-label="Sakshi Pakle LinkedIn Profile"
+                  title="Sakshi Pakle LinkedIn Profile">
+                  <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                    <rect x="2" y="9" width="4" height="12"></rect>
+                    <circle cx="4" cy="4" r="2"></circle>
+                  </svg>
+                  <span>LinkedIn</span>
+                </a>
+                <!-- GitHub URL -->
+                <a href="https://github.com/sakshipakle" target="_blank" rel="noopener noreferrer"
+                  class="btn btn-outline btn-social" aria-label="Sakshi Pakle GitHub Profile"
+                  title="Sakshi Pakle GitHub Profile">
+                  <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path
+                      d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                    </path>
+                  </svg>
+                  <span>GitHub</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Contact Form -->
+          <div class="contact-form-card card reveal">
+            <h3 class="form-heading">Send a Direct Message</h3>
+            <p class="form-subheading text-muted">
+              Fill in your details below. Submitting will validate your input and open your email client pre-filled, or
+              can be connected to any free form service (e.g. Formspree).
+            </p>
+
+            <form id="contactForm" class="contact-form" novalidate>
+              <!-- Name Field -->
+              <div class="form-group">
+                <label for="name" class="form-label">Your Full Name <span class="required">*</span></label>
+                <input type="text" id="name" name="from_name" class="form-control" placeholder="e.g. Rahul Sharma"
+                  required autocomplete="name">
+                <span class="form-error" id="nameError"></span>
+              </div>
+
+              <!-- Email Field -->
+              <div class="form-group">
+                <label for="email" class="form-label">Your Email Address <span class="required">*</span></label>
+                <input type="email" id="email" name="from_email" class="form-control"
+                  placeholder="e.g. rahul@example.com" required autocomplete="email">
+                <span class="form-error" id="emailError"></span>
+              </div>
+
+              <!-- Service / Inquiry Selection -->
+              <div class="form-group">
+                <label for="serviceInterest" class="form-label">Inquiry Type / Service Needed</label>
+                <select id="serviceInterest" name="serviceInterest" class="form-control">
+                  <option value="Full-Time Hiring / Job Opportunity">Full-Time Hiring / Job Opportunity</option>
+                  <option value="Java Backend &amp; REST API Development">Java Backend &amp; REST API Development
+                  </option>
+                  <option value="Responsive Website Development">Responsive Website Development</option>
+                  <option value="MySQL Database Integration">MySQL Database Integration</option>
+                  <option value="Personal Portfolio Website">Personal Portfolio Website</option>
+                  <option value="General Technical Inquiry">General Technical Inquiry</option>
+                </select>
+              </div>
+
+              <!-- Subject Field -->
+              <div class="form-group">
+                <label for="subject" class="form-label">Subject <span class="required">*</span></label>
+                <input type="text" id="subject" name="subject" class="form-control"
+                  placeholder="e.g. Discussion regarding Java Developer Role" required>
+                <span class="form-error" id="subjectError"></span>
+              </div>
+
+              <!-- Message Field -->
+              <div class="form-group">
+                <label for="message" class="form-label">Message <span class="required">*</span></label>
+                <textarea id="message" name="message" class="form-control" rows="5"
+                  placeholder="Share project details, timelines, or role expectations..." required></textarea>
+                <span class="form-error" id="messageError"></span>
+              </div>
+
+              <!-- Submit Button -->
+              <button type="submit" class="btn btn-primary btn-block" id="submitBtn">
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <line x1="22" y1="2" x2="11" y2="13"></line>
+                  <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                </svg>
+                <span>Send Message</span>
+              </button>
+
+              <p class="form-disclaimer">
+                🔒 Direct delivery powered by EmailJS. Your message is sent straight to Sakshi Pakle.
+              </p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 9. FOOTER SECTION -->
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="#hero" class="brand-logo footer-logo">
+            <span class="logo-mark">SP</span>
+            <span class="logo-text">Sakshi<span class="text-accent">.</span>Pakle</span>
+          </a>
+          <p class="footer-tagline">
+            Software Developer based in Pune, India. Dedicated to building reliable, high-performance web
+            applications and backend architectures.
+          </p>
+        </div>
+
+        <div class="footer-nav-group">
+          <h4 class="footer-heading">Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="#about">About Me</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#skills">Skills &amp; Tech</a></li>
+            <li><a href="#projects">Featured Projects</a></li>
+            <li><a href="#experience">Experience &amp; Education</a></li>
+            <li><a href="#process">Development Process</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-contact-group">
+          <h4 class="footer-heading">Connect</h4>
+          <ul class="footer-links">
+            <li><a href="mailto:sakshipakle.dev@gmail.com">sakshipakle.dev@gmail.com</a></li>
+            <li><a href="https://linkedin.com/in/sakshi-pakle-placeholder" target="_blank"
+                rel="noopener noreferrer">LinkedIn Profile</a></li>
+            <li><a href="https://github.com/sakshipakle" target="_blank" rel="noopener noreferrer">GitHub
+                Profile</a></li>
+            <li><a href="./assets/resume.pdf" class="resume-download-btn" download="Sakshi_Pakle_Resume.pdf">Download
+                Resume (PDF)</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="copyright-text">
+          &copy; <span id="currentYear">2026</span> Sakshi Pakle. All rights reserved. Crafted with clean HTML5, CSS3
+          &amp; Vanilla JavaScript.
+        </p>
+        <a href="#hero" class="back-to-top" aria-label="Back to top of page">
+          <span>Back to Top</span>
+          <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="18 15 12 9 6 15"></polyline>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- PROJECT MODALS (Accessible Dialogs for in-depth architecture details) -->
+  <!-- Modal 1: Hospital Management System -->
+  <div class="modal" id="project-modal-1" role="dialog" aria-modal="true" aria-labelledby="modal-title-1"
+    aria-hidden="true">
+    <div class="modal-overlay" data-close="modal"></div>
+    <div class="modal-content card">
+      <button class="modal-close" data-close="modal" aria-label="Close modal">&times;</button>
+      <span class="badge-pill">Technical Deep Dive</span>
+      <h3 id="modal-title-1" class="modal-title">Hospital Management System</h3>
+      <p class="modal-summary text-muted">Java • Spring Boot • Hibernate • MySQL Database</p>
+
+      <div class="modal-body-section">
+        <h4>Key Features &amp; Architecture</h4>
+        <ul>
+          <li><strong>Patient Management:</strong> Dynamic registration, medical history tracking, and patient admission
+            workflows.</li>
+          <li><strong>Doctor Scheduling:</strong> Departmental roster management and real-time appointment booking
+            slots.</li>
+          <li><strong>Relational DB Model:</strong> Normalized MySQL schema enforcing foreign key integrity across
+            patients, doctors, beds, and billing records.</li>
+          <li><strong>Spring Boot MVC:</strong> Clean separation of Controller, Service, and Repository layers with
+            transactional consistency.</li>
+        </ul>
+      </div>
+
+      <div class="modal-footer">
+        <a href="https://github.com/sakshipakle/HospitalManagementSystem" target="_blank" rel="noopener noreferrer"
+          class="btn btn-outline" data-project="Hospital Management System">View Repository (GitHub)</a>
+        <button class="btn btn-secondary" data-close="modal">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 2: Task Management System -->
+  <div class="modal" id="project-modal-2" role="dialog" aria-modal="true" aria-labelledby="modal-title-2"
+    aria-hidden="true">
+    <div class="modal-overlay" data-close="modal"></div>
+    <div class="modal-content card">
+      <button class="modal-close" data-close="modal" aria-label="Close modal">&times;</button>
+      <span class="badge-pill">Technical Deep Dive</span>
+      <h3 id="modal-title-2" class="modal-title">Task Management System</h3>
+      <p class="modal-summary text-muted">Spring Boot • RESTful Web Services • JPA • Postman</p>
+
+      <div class="modal-body-section">
+        <h4>Key Features &amp; Architecture</h4>
+        <ul>
+          <li><strong>Standardized REST Verbs:</strong> GET, POST, PUT, DELETE endpoints adhering strictly to REST
+            specifications.</li>
+          <li><strong>Validation &amp; Error Responses:</strong> Custom exception handlers returning uniform JSON status
+            payloads with HTTP 400/404/500 codes.</li>
+          <li><strong>Postman Verification:</strong> Complete collection testing verifying payload shapes, edge cases,
+            and response times.</li>
+          <li><strong>Persistence Layer:</strong> Spring Data JPA repositories with query methods for priority and
+            status filtering.</li>
+        </ul>
+      </div>
+
+      <div class="modal-footer">
+        <a href="https://github.com/sakshipakle/Task_Management_System" target="_blank" rel="noopener noreferrer"
+          class="btn btn-outline" data-project="Task Management System">View Repository (GitHub)</a>
+        <button class="btn btn-secondary" data-close="modal">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 3: Food Delivery System -->
+  <div class="modal" id="project-modal-3" role="dialog" aria-modal="true" aria-labelledby="modal-title-3"
+    aria-hidden="true">
+    <div class="modal-overlay" data-close="modal"></div>
+    <div class="modal-content card">
+      <button class="modal-close" data-close="modal" aria-label="Close modal">&times;</button>
+      <span class="badge-pill">Technical Deep Dive</span>
+      <h3 id="modal-title-3" class="modal-title">Food Delivery System</h3>
+      <p class="modal-summary text-muted">Java • JDBC Connectivity • MySQL Transactions</p>
+
+      <div class="modal-body-section">
+        <h4>Key Features &amp; Architecture</h4>
+        <ul>
+          <li><strong>Core Java &amp; JDBC:</strong> Direct SQL connectivity utilizing PreparedStatements to prevent SQL
+            injection vulnerabilities.</li>
+          <li><strong>Order &amp; Cart Management:</strong> Multi-item cart persistence with automatic price and tax
+            calculation.</li>
+          <li><strong>Transaction Safety:</strong> Commit/Rollback mechanisms ensuring that restaurant orders and stock
+            allocations stay synchronized.</li>
+        </ul>
+      </div>
+
+      <div class="modal-footer">
+        <a href="https://github.com/sakshipakle/FoodDeliverySystem" target="_blank" rel="noopener noreferrer"
+          class="btn btn-outline" data-project="Food Delivery System">View Repository (GitHub)</a>
+        <button class="btn btn-secondary" data-close="modal">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 4: Crop Yield Prediction -->
+  <div class="modal" id="project-modal-4" role="dialog" aria-modal="true" aria-labelledby="modal-title-4"
+    aria-hidden="true">
+    <div class="modal-overlay" data-close="modal"></div>
+    <div class="modal-content card">
+      <button class="modal-close" data-close="modal" aria-label="Close modal">&times;</button>
+      <span class="badge-pill">Technical Deep Dive</span>
+      <h3 id="modal-title-4" class="modal-title">Crop Yield Prediction</h3>
+      <p class="modal-summary text-muted">Applied Analytics • Agricultural Data Processing</p>
+
+      <div class="modal-body-section">
+        <h4>Key Features &amp; Architecture</h4>
+        <ul>
+          <li><strong>Soil &amp; Weather Parameters:</strong> Processing Nitrogen, Phosphorus, Potassium (NPK), rainfall
+            metrics, and seasonal temperatures.</li>
+          <li><strong>Predictive Logic:</strong> Recommends top-performing crop varieties based on regional historical
+            yield patterns.</li>
+          <li><strong>Structured Reporting:</strong> Generates formatted output summaries aiding farmers and
+            agricultural stakeholders.</li>
+        </ul>
+      </div>
+
+      <div class="modal-footer">
+        <a href="https://github.com/sakshipakle/Crop-Yield-Prediction" target="_blank" rel="noopener noreferrer"
+          class="btn btn-outline" data-project="Crop Yield Prediction">View Repository (GitHub)</a>
+        <button class="btn btn-secondary" data-close="modal">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- EmailJS Browser SDK (Direct Email Delivery) -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <!-- JavaScript Application File -->
+  <script src="./script.js"></script>
+</body>
+
+</html>

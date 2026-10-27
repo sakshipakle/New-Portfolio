@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 380" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgHosp" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b1528"/>
+      <stop offset="100%" stop-color="#102340"/>
+    </linearGradient>
+    <linearGradient id="glowHosp" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0066ff"/>
+      <stop offset="100%" stop-color="#00d2ff"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="380" rx="12" fill="url(#bgHosp)"/>
+  
+  <!-- Window Header -->
+  <rect width="600" height="40" rx="12" fill="#080e1a"/>
+  <circle cx="25" cy="20" r="5" fill="#ef4444" opacity="0.8"/>
+  <circle cx="42" cy="20" r="5" fill="#f59e0b" opacity="0.8"/>
+  <circle cx="59" cy="20" r="5" fill="#10b981" opacity="0.8"/>
+  <text x="300" y="25" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" fill="#64748b" text-anchor="middle">Hospital Management System • Java / Spring Boot</text>
+
+  <!-- Left Sidebar Mock -->
+  <rect x="20" y="60" width="120" height="300" rx="8" fill="#131e33" opacity="0.7"/>
+  <rect x="35" y="80" width="90" height="12" rx="4" fill="#00d2ff" opacity="0.4"/>
+  <rect x="35" y="105" width="70" height="10" rx="3" fill="#334155"/>
+  <rect x="35" y="125" width="80" height="10" rx="3" fill="#334155"/>
+  <rect x="35" y="145" width="65" height="10" rx="3" fill="#334155"/>
+  <rect x="35" y="165" width="75" height="10" rx="3" fill="#334155"/>
+
+  <!-- Main Content Dashboard -->
+  <!-- Stats Cards -->
+  <rect x="160" y="60" width="130" height="60" rx="8" fill="#13223f" stroke="#1e3a5f" stroke-width="1"/>
+  <text x="175" y="82" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" fill="#94a3b8">Active Patients</text>
+  <text x="175" y="105" font-family="'Plus Jakarta Sans', sans-serif" font-size="18" font-weight="700" fill="#00d2ff">1,248</text>
+
+  <rect x="305" y="60" width="130" height="60" rx="8" fill="#13223f" stroke="#1e3a5f" stroke-width="1"/>
+  <text x="320" y="82" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" fill="#94a3b8">Doctors on Duty</text>
+  <text x="320" y="105" font-family="'Plus Jakarta Sans', sans-serif" font-size="18" font-weight="700" fill="#38bdf8">42</text>
+
+  <rect x="450" y="60" width="130" height="60" rx="8" fill="#13223f" stroke="#1e3a5f" stroke-width="1"/>
+  <text x="465" y="82" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" fill="#94a3b8">Bed Occupancy</text>
+  <text x="465" y="105" font-family="'Plus Jakarta Sans', sans-serif" font-size="18" font-weight="700" fill="#60a5fa">84%</text>
+
+  <!-- Table Preview -->
+  <rect x="160" y="135" width="420" height="160" rx="8" fill="#0e1a2f" stroke="#1e293b" stroke-width="1"/>
+  <rect x="175" y="150" width="390" height="24" rx="4" fill="#1e293b" opacity="0.6"/>
+  <line x1="175" y1="200" x2="565" y2="200" stroke="#1e293b"/>
+  <line x1="175" y1="230" x2="565" y2="230" stroke="#1e293b"/>
+  <line x1="175" y1="260" x2="565" y2="260" stroke="#1e293b"/>
+
+  <!-- Hospital Cross Icon Graphic -->
+  <g transform="translate(500, 70)" opacity="0.25">
+    <rect x="12" y="0" width="8" height="32" fill="#00d2ff" rx="2"/>
+    <rect x="0" y="12" width="32" height="8" fill="#00d2ff" rx="2"/>
+  </g>
+
+</svg>

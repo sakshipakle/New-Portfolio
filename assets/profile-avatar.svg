@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="avatarBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0e1b33"/>
+      <stop offset="50%" stop-color="#14284b"/>
+      <stop offset="100%" stop-color="#0a1222"/>
+    </linearGradient>
+    <linearGradient id="neonGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00d2ff"/>
+      <stop offset="100%" stop-color="#0066ff"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Outer circle / Border ring -->
+  <circle cx="200" cy="200" r="190" fill="url(#avatarBg)"/>
+  <circle cx="200" cy="200" r="185" fill="none" stroke="url(#neonGlow)" stroke-width="3" stroke-dasharray="12 6" opacity="0.8"/>
+  
+
+  <!-- Abstract Developer Silhouette -->
+  <!-- Body / Shoulders -->
+  <path d="M 100 370 C 100 290, 150 260, 200 260 C 250 260, 300 290, 300 370 Z" fill="#1a2e50" stroke="#00d2ff" stroke-width="2" stroke-opacity="0.4"/>
+  <!-- Head -->
+  <circle cx="200" cy="190" r="55" fill="#243b66" stroke="#00d2ff" stroke-width="2" stroke-opacity="0.6"/>
+  <!-- Monogram Initials -->
+  <text x="200" y="202" font-family="'Plus Jakarta Sans', sans-serif" font-size="34" font-weight="800" fill="#00d2ff" text-anchor="middle" letter-spacing="-1">SP</text>
+  
+  <!-- Subtitle badge -->
+  <rect x="100" y="330" width="200" height="30" rx="15" fill="#080e1c" stroke="#00d2ff" stroke-width="1.5"/>
+  <text x="200" y="350" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700" fill="#cbd5e1" text-anchor="middle">SAKSHI PAKLE</text>
+</svg>

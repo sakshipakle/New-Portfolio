@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 380" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgCrop" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a1520"/>
+      <stop offset="100%" stop-color="#112739"/>
+    </linearGradient>
+    <linearGradient id="chartGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#00d2ff" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#0066ff" stop-opacity="0.0"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="380" rx="12" fill="url(#bgCrop)"/>
+  
+  <!-- Window Header -->
+  <rect width="600" height="40" rx="12" fill="#070e17"/>
+  <circle cx="25" cy="20" r="5" fill="#ef4444" opacity="0.8"/>
+  <circle cx="42" cy="20" r="5" fill="#f59e0b" opacity="0.8"/>
+  <circle cx="59" cy="20" r="5" fill="#10b981" opacity="0.8"/>
+  <text x="300" y="25" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" fill="#64748b" text-anchor="middle">Crop Yield Prediction System • Analytics &amp; Forecasting Engine</text>
+
+  <!-- Metrics row -->
+  <rect x="25" y="60" width="170" height="60" rx="8" fill="#102235" stroke="#1d3d5e" stroke-width="1"/>
+  <text x="40" y="82" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" fill="#94a3b8">Optimal Nitrogen (N)</text>
+  <text x="40" y="105" font-family="'Plus Jakarta Sans', sans-serif" font-size="18" font-weight="700" fill="#00d2ff">88.4 mg/kg</text>
+
+  <rect x="215" y="60" width="170" height="60" rx="8" fill="#102235" stroke="#1d3d5e" stroke-width="1"/>
+  <text x="230" y="82" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" fill="#94a3b8">Rainfall Forecast</text>
+  <text x="230" y="105" font-family="'Plus Jakarta Sans', sans-serif" font-size="18" font-weight="700" fill="#38bdf8">202.9 mm</text>
+
+  <rect x="405" y="60" width="170" height="60" rx="8" fill="#102235" stroke="#1d3d5e" stroke-width="1"/>
+  <text x="420" y="82" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" fill="#94a3b8">Predicted Best Crop</text>
+  <text x="420" y="105" font-family="'Plus Jakarta Sans', sans-serif" font-size="18" font-weight="700" fill="#10b981">Rice / Paddy</text>
+
+  <!-- Yield Projection Chart Mock -->
+  <rect x="25" y="135" width="550" height="160" rx="8" fill="#0a1727" stroke="#172e48" stroke-width="1"/>
+  <text x="45" y="160" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="600" fill="#cbd5e1">Seasonal Yield Estimation Trend (Quintals / Hectare)</text>
+
+  <!-- Chart lines & grid -->
+  <line x1="45" y1="185" x2="555" y2="185" stroke="#1e2e44" stroke-dasharray="4"/>
+  <line x1="45" y1="225" x2="555" y2="225" stroke="#1e2e44" stroke-dasharray="4"/>
+  <line x1="45" y1="265" x2="555" y2="265" stroke="#1e2e44"/>
+
+  <!-- Curve line -->
+  <path d="M 60 250 Q 140 240, 200 200 T 320 180 T 420 160 T 540 145 L 540 265 L 60 265 Z" fill="url(#chartGrad)"/>
+  <path d="M 60 250 Q 140 240, 200 200 T 320 180 T 420 160 T 540 145" fill="none" stroke="#00d2ff" stroke-width="3"/>
+  <circle cx="540" cy="145" r="5" fill="#00d2ff" stroke="#0a1727" stroke-width="2"/>
+</svg>
