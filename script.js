@@ -169,6 +169,12 @@
           }
         }
       });
+      heroExploreBtn.addEventListener('keydown', function (e) {
+        if (e.key === ' ' || e.key === 'Spacebar') {
+          e.preventDefault();
+          this.click();
+        }
+      });
     }
 
     // 2. Get In Touch button -> smoothly scroll to #contact
@@ -183,6 +189,12 @@
           } else {
             window.location.hash = '#contact';
           }
+        }
+      });
+      heroContactBtn.addEventListener('keydown', function (e) {
+        if (e.key === ' ' || e.key === 'Spacebar') {
+          e.preventDefault();
+          this.click();
         }
       });
     }
@@ -400,6 +412,9 @@
   // 9. RESUME DOWNLOAD HANDLER & STATUS CHECK
   // ==========================================================================
   resumeDownloadBtns.forEach((btn) => {
+    btn.setAttribute('href', PORTFOLIO_CONFIG.resumePath);
+    btn.setAttribute('download', 'Sakshi_Pakle_Resume.pdf');
+
     btn.addEventListener('click', function (e) {
       if (!PORTFOLIO_CONFIG.hasResumePdfOnDisk) {
         e.preventDefault();
@@ -408,8 +423,48 @@
           'warning',
           6000
         );
-      } else {
-        showToast('Downloading Sakshi Pakle\'s Resume (PDF)...', 'info', 3000);
+        return;
+      }
+
+      showToast('Downloading Sakshi Pakle\'s Resume (PDF)...', 'success', 3000);
+
+      // If running over HTTP/HTTPS, use Blob fetch to ensure immediate file download
+      if (window.fetch && window.location.protocol.startsWith('http')) {
+        e.preventDefault();
+        fetch(PORTFOLIO_CONFIG.resumePath)
+          .then((res) => {
+            if (!res.ok) throw new Error('File fetch failed');
+            return res.blob();
+          })
+          .then((blob) => {
+            const blobUrl = window.URL.createObjectURL(blob);
+            const tempLink = document.createElement('a');
+            tempLink.style.display = 'none';
+            tempLink.href = blobUrl;
+            tempLink.download = 'Sakshi_Pakle_Resume.pdf';
+            document.body.appendChild(tempLink);
+            tempLink.click();
+            setTimeout(() => {
+              document.body.removeChild(tempLink);
+              window.URL.revokeObjectURL(blobUrl);
+            }, 1000);
+          })
+          .catch((err) => {
+            console.warn('Direct blob download fallback to native link:', err);
+            const fallbackLink = document.createElement('a');
+            fallbackLink.href = PORTFOLIO_CONFIG.resumePath;
+            fallbackLink.download = 'Sakshi_Pakle_Resume.pdf';
+            document.body.appendChild(fallbackLink);
+            fallbackLink.click();
+            document.body.removeChild(fallbackLink);
+          });
+      }
+    });
+
+    btn.addEventListener('keydown', function (e) {
+      if (e.key === ' ' || e.key === 'Spacebar') {
+        e.preventDefault();
+        this.click();
       }
     });
   });
@@ -516,8 +571,12 @@
       }
     }
 
+    let isSubmitting = false;
+
     contactForm.addEventListener('submit', function (e) {
       e.preventDefault();
+      if (isSubmitting) return;
+
       clearErrors();
 
       let isValid = true;
@@ -552,12 +611,20 @@
         if (subjectError) subjectError.textContent = 'Please enter a subject.';
         if (subjectInput) subjectInput.classList.add('is-invalid');
         isValid = false;
+      } else if (subjectValue.length < 2) {
+        if (subjectError) subjectError.textContent = 'Subject must be at least 2 characters.';
+        if (subjectInput) subjectInput.classList.add('is-invalid');
+        isValid = false;
       }
 
       // Validate Message
       const messageValue = messageInput ? messageInput.value.trim() : '';
       if (!messageValue) {
         if (messageError) messageError.textContent = 'Please enter your message.';
+        if (messageInput) messageInput.classList.add('is-invalid');
+        isValid = false;
+      } else if (messageValue.length < 5) {
+        if (messageError) messageError.textContent = 'Message must be at least 5 characters.';
         if (messageInput) messageInput.classList.add('is-invalid');
         isValid = false;
       }
@@ -567,60 +634,90 @@
         return;
       }
 
-      // Map exact templateParams: from_name, from_email, subject, message
-      const templateParams = {
-        from_name: nameValue,
-        from_email: emailValue,
-        subject: subjectValue,
-        message: messageValue,
-        // Common template aliases ensuring compatibility with various EmailJS template tags
+      // Prepare payload matching Spring Boot ContactRequestDTO
+      const payload = {
         name: nameValue,
         email: emailValue,
-        reply_to: emailValue
+        serviceInterest: serviceInput ? serviceInput.value : '',
+        subject: subjectValue,
+        message: messageValue
       };
 
-      // Set Sending UI state: disable button, show spinner & "Sending..."
+      // Set Sending UI state: prevent duplicate submission, show spinner
+      isSubmitting = true;
       setSendingState(true);
 
-      // Check EmailJS SDK availability
-      if (typeof emailjs === 'undefined') {
-        console.error('EmailJS browser SDK not detected.');
-        showToast('Failed to send message. Please contact directly at sakshipaklel@gmail.com', 'error', 8000);
-        setSendingState(false);
-        return;
-      }
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 12000);
 
-      // Ensure public key is initialized
-      try {
-        if (emailjs.init) {
-          emailjs.init({ publicKey: EMAILJS_CONFIG.publicKey });
-        }
-      } catch (initErr) {
-        console.warn('EmailJS init warning:', initErr);
-      }
+      fetch('http://localhost:8080/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(payload),
+        signal: controller.signal
+      })
+        .then(async (response) => {
+          clearTimeout(timeoutId);
+          let data = null;
+          try {
+            data = await response.json();
+          } catch (jsonErr) {
+            // Non-JSON response
+          }
 
-      // Send message via EmailJS
-      emailjs
-        .send(EMAILJS_CONFIG.serviceId, EMAILJS_CONFIG.templateId, templateParams)
-        .then((response) => {
-          console.log('EmailJS response:', response.status, response.text);
-          showToast(
-            'Thank you! Your message has been sent successfully. Sakshi will get back to you soon.',
-            'success',
-            6000
-          );
-          contactForm.reset();
+          if (response.ok && data && data.success) {
+            showToast(
+              data.message || 'Thank you! Your message has been saved successfully.',
+              'success',
+              6000
+            );
+            contactForm.reset();
+            clearErrors();
+          } else {
+            const errorMsg = (data && data.message)
+              ? data.message
+              : `Submission failed (HTTP ${response.status}). Please try again.`;
+
+            // Display server-side field validation errors if available
+            if (data && Array.isArray(data.errors) && data.errors.length > 0) {
+              data.errors.forEach((errStr) => {
+                const parts = errStr.split(':');
+                if (parts.length >= 2) {
+                  const fieldName = parts[0].trim();
+                  const fieldMsg = parts.slice(1).join(':').trim();
+                  const targetInput = document.getElementById(fieldName);
+                  const targetErrorSpan = document.getElementById(`${fieldName}Error`);
+                  if (targetInput) targetInput.classList.add('is-invalid');
+                  if (targetErrorSpan) targetErrorSpan.textContent = fieldMsg;
+                }
+              });
+            }
+
+            showToast(errorMsg, 'error', 7000);
+          }
         })
         .catch((error) => {
-          console.error('EmailJS send error:', error);
-          showToast(
-            'Failed to send message. Please contact directly at sakshipaklel@gmail.com',
-            'error',
-            8000
-          );
+          clearTimeout(timeoutId);
+          console.error('Contact API submission error:', error);
+          if (error.name === 'AbortError') {
+            showToast(
+              'Request timed out. Please check if the Spring Boot backend is running on port 8080.',
+              'error',
+              8000
+            );
+          } else {
+            showToast(
+              'Unable to reach backend server (http://localhost:8080). Please ensure Spring Boot is running, or contact directly at sakshipaklel@gmail.com.',
+              'error',
+              8000
+            );
+          }
         })
         .finally(() => {
-          // Re-enable button and restore original icon & text
+          isSubmitting = false;
           setSendingState(false);
         });
     });
