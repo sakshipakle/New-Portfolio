@@ -33,6 +33,9 @@
     href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
     rel="stylesheet">
 
+  <!-- Devicon Icons CSS CDN -->
+  <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+
   <!-- Main Stylesheet -->
   <link rel="stylesheet" href="./style.css">
 
@@ -88,17 +91,6 @@
 
       <!-- Header Action Buttons -->
       <div class="header-actions">
-        <a href="./assets/resume.pdf" class="btn btn-sm btn-outline resume-download-btn"
-          download="Sakshi_Pakle_Resume.pdf" title="Download Resume (PDF)">
-          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-            <polyline points="7 10 12 15 17 10"></polyline>
-            <line x1="12" y1="15" x2="12" y2="3"></line>
-          </svg>
-          <span>Resume</span>
-        </a>
-
         <!-- Mobile Menu Toggle Button -->
         <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle mobile menu" aria-expanded="false"
           aria-controls="mobileMenu">
@@ -121,20 +113,11 @@
           <li><a href="#process" class="mobile-nav-link">Development Process</a></li>
           <li><a href="#contact" class="mobile-nav-link">Contact</a></li>
         </ul>
-        <div class="mobile-nav-cta">
-          <a href="./assets/resume.pdf" class="btn btn-primary btn-block resume-download-btn"
-            download="Sakshi_Pakle_Resume.pdf">
-            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-              <polyline points="7 10 12 15 17 10"></polyline>
-              <line x1="12" y1="15" x2="12" y2="3"></line>
-            </svg>
-            Download Resume (PDF)
-          </a>
-        </div>
       </nav>
     </div>
+
+    <!-- Scroll Progress Indicator Bar -->
+    <div class="scroll-progress-bar" id="scrollProgressBar" aria-hidden="true"></div>
   </header>
 
   <!-- MAIN CONTENT -->
@@ -158,7 +141,7 @@
 
           <!-- Subtitle / Profile Intro -->
           <p class="hero-description reveal">
-            I'm <strong class="text-white">Sakshi Pakle</strong>, a <strong>Software Developer Intern at CodeMetric</strong>, based in Pune, India. I work with Java, Spring Boot, REST APIs, and MySQL to develop backend functionality, build database-driven applications, and create practical software solutions for real-world requirements.
+            I'm <strong class="text-white">Sakshi Pakle</strong>, a <strong class="text-white"><span id="typed-role">Software Developer</span></strong> at CodeMetric, based in Pune, India. I work with Java, Spring Boot, REST APIs, and MySQL to develop backend functionality, build database-driven applications, and create practical software solutions for real-world requirements.
           </p>
 
           <!-- Experience, Location, and Core Tech Information Blocks (Above Buttons) -->
@@ -172,7 +155,7 @@
               </div>
               <div class="highlight-details">
                 <span class="highlight-label">Experience</span>
-                <p class="highlight-value">Software Developer Intern @ CodeMetric</p>
+                <p class="highlight-value">Fresher / Associate</p>
               </div>
             </div>
 
@@ -185,7 +168,7 @@
               </div>
               <div class="highlight-details">
                 <span class="highlight-label">Location</span>
-                <p class="highlight-value">Pune, Maharashtra, India</p>
+                <p class="highlight-value">Pune, Maharashtra</p>
               </div>
             </div>
 
@@ -197,8 +180,8 @@
                 </svg>
               </div>
               <div class="highlight-details">
-                <span class="highlight-label">Core Tech</span>
-                <p class="highlight-value">Java • Spring Boot • SQL • REST</p>
+                <span class="highlight-label">Core Focus</span>
+                <p class="highlight-value">Java Full Stack / Spring Boot</p>
               </div>
             </div>
           </div>
@@ -222,22 +205,11 @@
                 <polyline points="22 6 12 13 2 6"></polyline>
               </svg>
             </a>
-
-            <a href="./assets/resume.pdf" class="btn btn-outline resume-download-btn" id="heroResumeBtn"
-              download="Sakshi_Pakle_Resume.pdf" title="Download Resume (PDF)">
-              <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                <polyline points="7 10 12 15 17 10"></polyline>
-                <line x1="12" y1="15" x2="12" y2="3"></line>
-              </svg>
-              <span>Download Resume</span>
-            </a>
           </div>
         </div>
 
-        <!-- Hero Visual Profile Card with 3D Depth & Orb -->
-        <div class="hero-visual reveal" id="heroVisual" data-parallax-depth="-0.04">
+        <!-- Hero Visual Profile Card -->
+        <div class="hero-visual reveal" id="heroVisual">
           <!-- 3D Gyroscopic Orbital Scene -->
           <div class="hero-3d-scene" aria-hidden="true">
             <div class="orb-container">
@@ -248,7 +220,7 @@
             </div>
           </div>
 
-          <div class="profile-card" data-tilt data-tilt-max="10">
+          <div class="profile-card" id="heroProfileCard">
             <div class="profile-glow"></div>
             <div class="profile-card-inner">
               <div class="avatar-container">
@@ -539,17 +511,47 @@
             </div>
             <p class="category-description">Server-side architecture, enterprise patterns, and framework tooling.</p>
             <div class="skill-tags">
-              <div class="skill-badge"><span class="badge-tech">Java</span><span class="badge-sub">Core &amp; OOP</span>
+              <div class="skill-badge">
+                <span class="badge-icon" aria-hidden="true"><i class="devicon-java-plain colored"></i></span>
+                <div class="badge-text-group">
+                  <span class="badge-tech">Java</span>
+                  <span class="badge-sub">Core &amp; OOP</span>
+                </div>
               </div>
-              <div class="skill-badge"><span class="badge-tech">Spring Boot</span><span class="badge-sub">REST &amp;
-                  MVC</span></div>
-              <div class="skill-badge"><span class="badge-tech">REST APIs</span><span class="badge-sub">Web
-                  Services</span></div>
-              <div class="skill-badge"><span class="badge-tech">Hibernate / JPA</span><span class="badge-sub">ORM</span>
+              <div class="skill-badge">
+                <span class="badge-icon" aria-hidden="true"><i class="devicon-spring-original colored"></i></span>
+                <div class="badge-text-group">
+                  <span class="badge-tech">Spring Boot</span>
+                  <span class="badge-sub">REST &amp; MVC</span>
+                </div>
               </div>
-              <div class="skill-badge"><span class="badge-tech">JDBC</span><span class="badge-sub">Connectivity</span>
+              <div class="skill-badge">
+                <span class="badge-icon" aria-hidden="true"><i class="devicon-fastapi-plain colored"></i></span>
+                <div class="badge-text-group">
+                  <span class="badge-tech">REST APIs</span>
+                  <span class="badge-sub">Web Services</span>
+                </div>
               </div>
-              <div class="skill-badge"><span class="badge-tech">Maven</span><span class="badge-sub">Build Tool</span>
+              <div class="skill-badge">
+                <span class="badge-icon" aria-hidden="true"><i class="devicon-hibernate-plain colored"></i></span>
+                <div class="badge-text-group">
+                  <span class="badge-tech">Hibernate / JPA</span>
+                  <span class="badge-sub">ORM</span>
+                </div>
+              </div>
+              <div class="skill-badge">
+                <span class="badge-icon" aria-hidden="true"><i class="devicon-oracle-original colored"></i></span>
+                <div class="badge-text-group">
+                  <span class="badge-tech">JDBC</span>
+                  <span class="badge-sub">Connectivity</span>
+                </div>
+              </div>
+              <div class="skill-badge">
+                <span class="badge-icon" aria-hidden="true"><i class="devicon-maven-plain colored"></i></span>
+                <div class="badge-text-group">
+                  <span class="badge-tech">Maven</span>
+                  <span class="badge-sub">Build Tool</span>
+                </div>
               </div>
             </div>
           </div>
@@ -568,13 +570,34 @@
             </div>
             <p class="category-description">Relational persistence, transactional safety, and query design.</p>
             <div class="skill-tags">
-              <div class="skill-badge"><span class="badge-tech">MySQL</span><span class="badge-sub">RDBMS</span></div>
-              <div class="skill-badge"><span class="badge-tech">SQL</span><span class="badge-sub">Queries &amp;
-                  DDL/DML</span></div>
-              <div class="skill-badge"><span class="badge-tech">Schema Design</span><span
-                  class="badge-sub">Normalization</span></div>
-              <div class="skill-badge"><span class="badge-tech">Data Integrity</span><span class="badge-sub">Constraints
-                  &amp; FK</span></div>
+              <div class="skill-badge">
+                <span class="badge-icon" aria-hidden="true"><i class="devicon-mysql-original colored"></i></span>
+                <div class="badge-text-group">
+                  <span class="badge-tech">MySQL</span>
+                  <span class="badge-sub">RDBMS</span>
+                </div>
+              </div>
+              <div class="skill-badge">
+                <span class="badge-icon" aria-hidden="true"><i class="devicon-sqldeveloper-plain colored"></i></span>
+                <div class="badge-text-group">
+                  <span class="badge-tech">SQL</span>
+                  <span class="badge-sub">Queries &amp; DDL/DML</span>
+                </div>
+              </div>
+              <div class="skill-badge">
+                <span class="badge-icon" aria-hidden="true"><i class="devicon-postgresql-plain colored"></i></span>
+                <div class="badge-text-group">
+                  <span class="badge-tech">Schema Design</span>
+                  <span class="badge-sub">Normalization</span>
+                </div>
+              </div>
+              <div class="skill-badge">
+                <span class="badge-icon" aria-hidden="true"><i class="devicon-sqlite-plain colored"></i></span>
+                <div class="badge-text-group">
+                  <span class="badge-tech">Data Integrity</span>
+                  <span class="badge-sub">Constraints &amp; FK</span>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -591,16 +614,41 @@
             </div>
             <p class="category-description">Clean, user-centric interfaces and responsive client layouts.</p>
             <div class="skill-tags">
-              <div class="skill-badge"><span class="badge-tech">HTML5</span><span class="badge-sub">Semantic
-                  Layouts</span></div>
-              <div class="skill-badge"><span class="badge-tech">CSS3</span><span class="badge-sub">Grid, Flex &amp;
-                  Media</span></div>
-              <div class="skill-badge"><span class="badge-tech">JavaScript</span><span class="badge-sub">Vanilla &amp;
-                  ES6+</span></div>
-              <div class="skill-badge"><span class="badge-tech">Basic React</span><span class="badge-sub">Components
-                  &amp; Props</span></div>
-              <div class="skill-badge"><span class="badge-tech">Responsive Design</span><span class="badge-sub">Mobile
-                  First</span></div>
+              <div class="skill-badge">
+                <span class="badge-icon" aria-hidden="true"><i class="devicon-html5-plain colored"></i></span>
+                <div class="badge-text-group">
+                  <span class="badge-tech">HTML5</span>
+                  <span class="badge-sub">Semantic Layouts</span>
+                </div>
+              </div>
+              <div class="skill-badge">
+                <span class="badge-icon" aria-hidden="true"><i class="devicon-css3-plain colored"></i></span>
+                <div class="badge-text-group">
+                  <span class="badge-tech">CSS3</span>
+                  <span class="badge-sub">Grid, Flex &amp; Media</span>
+                </div>
+              </div>
+              <div class="skill-badge">
+                <span class="badge-icon" aria-hidden="true"><i class="devicon-javascript-plain colored"></i></span>
+                <div class="badge-text-group">
+                  <span class="badge-tech">JavaScript</span>
+                  <span class="badge-sub">Vanilla &amp; ES6+</span>
+                </div>
+              </div>
+              <div class="skill-badge">
+                <span class="badge-icon" aria-hidden="true"><i class="devicon-react-original colored"></i></span>
+                <div class="badge-text-group">
+                  <span class="badge-tech">Basic React</span>
+                  <span class="badge-sub">Components &amp; Props</span>
+                </div>
+              </div>
+              <div class="skill-badge">
+                <span class="badge-icon" aria-hidden="true"><i class="devicon-chrome-plain colored"></i></span>
+                <div class="badge-text-group">
+                  <span class="badge-tech">Responsive Design</span>
+                  <span class="badge-sub">Mobile First</span>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -619,16 +667,41 @@
             </div>
             <p class="category-description">Version control, debugging, testing, and developer environments.</p>
             <div class="skill-tags">
-              <div class="skill-badge"><span class="badge-tech">Postman</span><span class="badge-sub">API Testing</span>
+              <div class="skill-badge">
+                <span class="badge-icon" aria-hidden="true"><i class="devicon-postman-plain colored"></i></span>
+                <div class="badge-text-group">
+                  <span class="badge-tech">Postman</span>
+                  <span class="badge-sub">API Testing</span>
+                </div>
               </div>
-              <div class="skill-badge"><span class="badge-tech">Git</span><span class="badge-sub">Version Control</span>
+              <div class="skill-badge">
+                <span class="badge-icon" aria-hidden="true"><i class="devicon-git-plain colored"></i></span>
+                <div class="badge-text-group">
+                  <span class="badge-tech">Git</span>
+                  <span class="badge-sub">Version Control</span>
+                </div>
               </div>
-              <div class="skill-badge"><span class="badge-tech">GitHub</span><span
-                  class="badge-sub">Collaboration</span></div>
-              <div class="skill-badge"><span class="badge-tech">Eclipse IDE</span><span class="badge-sub">Java
-                  Workspace</span></div>
-              <div class="skill-badge"><span class="badge-tech">VS Code</span><span class="badge-sub">Web &amp;
-                  Scripts</span></div>
+              <div class="skill-badge">
+                <span class="badge-icon" aria-hidden="true"><i class="devicon-github-original"></i></span>
+                <div class="badge-text-group">
+                  <span class="badge-tech">GitHub</span>
+                  <span class="badge-sub">Collaboration</span>
+                </div>
+              </div>
+              <div class="skill-badge">
+                <span class="badge-icon" aria-hidden="true"><i class="devicon-eclipse-plain colored"></i></span>
+                <div class="badge-text-group">
+                  <span class="badge-tech">Eclipse IDE</span>
+                  <span class="badge-sub">Java Workspace</span>
+                </div>
+              </div>
+              <div class="skill-badge">
+                <span class="badge-icon" aria-hidden="true"><i class="devicon-vscode-plain colored"></i></span>
+                <div class="badge-text-group">
+                  <span class="badge-tech">VS Code</span>
+                  <span class="badge-sub">Web &amp; Scripts</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -1222,8 +1295,6 @@
                 rel="noopener noreferrer">LinkedIn Profile</a></li>
             <li><a href="https://github.com/sakshipakle" target="_blank" rel="noopener noreferrer">GitHub
                 Profile</a></li>
-            <li><a href="./assets/resume.pdf" class="resume-download-btn" download="Sakshi_Pakle_Resume.pdf">Download
-                Resume (PDF)</a></li>
           </ul>
         </div>
       </div>
@@ -1369,8 +1440,14 @@
 
   <!-- EmailJS Browser SDK (Direct Email Delivery) -->
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <!-- Typed.js Dynamic Role Typing CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+  <!-- SweetAlert2 Modal Dialog CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <!-- JavaScript Application File -->
   <script src="./script.js"></script>
+  <!-- Ask Sakshi AI Portfolio Assistant Module -->
+  <script src="./chatbot.js"></script>
 </body>
 
 </html>

@@ -14,9 +14,10 @@
     primaryEmail: 'sakshipaklel@gmail.com',
     linkedinUrl: 'https://linkedin.com/in/sakshi-pakle-placeholder',
     githubUrl: 'https://github.com/sakshipakle',
-    resumePath: './assets/resume.pdf',
-    // Verified: real resume PDF exists at assets/resume.pdf
-    hasResumePdfOnDisk: true
+    portfolioPdfPath: './assets/Sakshi_Pakle_Portfolio.pdf',
+    portfolioFileName: 'Sakshi_Pakle_Portfolio.pdf',
+    resumePath: './assets/Sakshi_Pakle_Portfolio.pdf',
+    hasPortfolioPdfOnDisk: true
   };
 
   // EmailJS Configuration
@@ -48,7 +49,6 @@
   const contactForm = document.getElementById('contactForm');
   const toastElement = document.getElementById('toast');
   const currentYearSpan = document.getElementById('currentYear');
-  const resumeDownloadBtns = document.querySelectorAll('.resume-download-btn');
   const projectDetailBtns = document.querySelectorAll('.project-detail-btn');
   const heroSection = document.getElementById('hero');
   const heroExploreBtn = document.getElementById('heroExploreBtn');
@@ -66,7 +66,7 @@
   }
 
   // ==========================================================================
-  // 2. TOAST NOTIFICATION UTILITY
+  // 2. TOAST & SWEETALERT MODAL NOTIFICATION UTILITY
   // ==========================================================================
   let toastTimeout;
   function showToast(message, type = 'info', duration = 4000) {
@@ -79,6 +79,27 @@
     toastTimeout = setTimeout(() => {
       toastElement.className = 'toast';
     }, duration);
+  }
+
+  function showContactSuccess(message) {
+    if (typeof Swal !== 'undefined') {
+      Swal.fire({
+        icon: 'success',
+        title: 'Message Sent!',
+        text: message || 'Thank you for reaching out! Your message has been sent successfully.',
+        background: '#0a1120',
+        color: '#f0f4f8',
+        iconColor: '#00d2ff',
+        confirmButtonText: 'Great!',
+        confirmButtonColor: '#00d2ff',
+        customClass: {
+          popup: 'swal2-dark-popup',
+          confirmButton: 'swal2-dark-btn'
+        }
+      });
+    } else {
+      showToast(message || 'Thank you! Your message has been sent successfully.', 'success', 6000);
+    }
   }
 
   // ==========================================================================
@@ -203,9 +224,20 @@
   initSmoothScroll();
 
   // ==========================================================================
-  // 5. STICKY HEADER & SCROLL SPY
+  // 5. STICKY HEADER, SCROLL SPY & SCROLL PROGRESS BAR
   // ==========================================================================
+  const scrollProgressBar = document.getElementById('scrollProgressBar');
+
+  function updateScrollProgress() {
+    if (!scrollProgressBar) return;
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrollPercent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    scrollProgressBar.style.width = `${Math.min(100, Math.max(0, scrollPercent))}%`;
+  }
+
   function handleScroll() {
+    updateScrollProgress();
     const scrollY = window.pageYOffset || document.documentElement.scrollTop;
 
     // Header elevation styling
@@ -253,6 +285,7 @@
   }
 
   window.addEventListener('scroll', handleScroll, { passive: true });
+  window.addEventListener('resize', updateScrollProgress, { passive: true });
   handleScroll(); // Initial run on page load
 
   // ==========================================================================
@@ -328,6 +361,9 @@
       currentY += (targetY - currentY) * 0.08;
 
       parallaxLayers.forEach((layer) => {
+        // Exclude hero visual profile card from parallax tilt
+        if (layer.id === 'heroVisual' || layer.classList.contains('hero-visual') || layer.closest('.hero-visual')) return;
+
         const depth = parseFloat(layer.getAttribute('data-parallax-depth')) || 0.04;
         const moveX = currentX * depth * 140;
         const moveY = currentY * depth * 140;
@@ -358,11 +394,23 @@
   function initInteractiveCardTilt3D() {
     if (isReducedMotion || isTouchDevice) return;
 
+    // Reset hero profile visual card to flat stable layout
+    const heroVisualEl = document.getElementById('heroVisual');
+    const heroCardEl = document.querySelector('.hero-visual .profile-card, #heroProfileCard');
+    if (heroVisualEl) heroVisualEl.style.transform = 'none';
+    if (heroCardEl) heroCardEl.style.transform = 'none';
+
     const tiltCards = document.querySelectorAll(
       '[data-tilt], .service-card, .project-card, .skill-category, .process-step, .pillar-card'
     );
 
     tiltCards.forEach((card) => {
+      // Exclude hero visual profile card from 3D tilt bending
+      if (card.classList.contains('profile-card') || card.classList.contains('hero-visual') || card.closest('.hero-visual') || card.id === 'heroProfileCard') {
+        card.style.transform = 'none';
+        return;
+      }
+
       // Create glare overlay if absent
       let glare = card.querySelector('.card-glare');
       if (!glare) {
@@ -407,69 +455,6 @@
   }
 
   initInteractiveCardTilt3D();
-
-  // ==========================================================================
-  // 9. RESUME DOWNLOAD HANDLER & STATUS CHECK
-  // ==========================================================================
-  resumeDownloadBtns.forEach((btn) => {
-    btn.setAttribute('href', PORTFOLIO_CONFIG.resumePath);
-    btn.setAttribute('download', 'Sakshi_Pakle_Resume.pdf');
-
-    btn.addEventListener('click', function (e) {
-      if (!PORTFOLIO_CONFIG.hasResumePdfOnDisk) {
-        e.preventDefault();
-        showToast(
-          'Resume file notice: Please copy your real resume PDF into the "assets/" folder as "resume.pdf" to enable direct download.',
-          'warning',
-          6000
-        );
-        return;
-      }
-
-      showToast('Downloading Sakshi Pakle\'s Resume (PDF)...', 'success', 3000);
-
-      // If running over HTTP/HTTPS, use Blob fetch to ensure immediate file download
-      if (window.fetch && window.location.protocol.startsWith('http')) {
-        e.preventDefault();
-        fetch(PORTFOLIO_CONFIG.resumePath)
-          .then((res) => {
-            if (!res.ok) throw new Error('File fetch failed');
-            return res.blob();
-          })
-          .then((blob) => {
-            const blobUrl = window.URL.createObjectURL(blob);
-            const tempLink = document.createElement('a');
-            tempLink.style.display = 'none';
-            tempLink.href = blobUrl;
-            tempLink.download = 'Sakshi_Pakle_Resume.pdf';
-            document.body.appendChild(tempLink);
-            tempLink.click();
-            setTimeout(() => {
-              document.body.removeChild(tempLink);
-              window.URL.revokeObjectURL(blobUrl);
-            }, 1000);
-          })
-          .catch((err) => {
-            console.warn('Direct blob download fallback to native link:', err);
-            const fallbackLink = document.createElement('a');
-            fallbackLink.href = PORTFOLIO_CONFIG.resumePath;
-            fallbackLink.download = 'Sakshi_Pakle_Resume.pdf';
-            document.body.appendChild(fallbackLink);
-            fallbackLink.click();
-            document.body.removeChild(fallbackLink);
-          });
-      }
-    });
-
-    btn.addEventListener('keydown', function (e) {
-      if (e.key === ' ' || e.key === 'Spacebar') {
-        e.preventDefault();
-        this.click();
-      }
-    });
-  });
-
-
 
   // ==========================================================================
   // 11. PROJECT ARCHITECTURE MODALS
@@ -669,10 +654,8 @@
           }
 
           if (response.ok && data && data.success) {
-            showToast(
-              data.message || 'Thank you! Your message has been saved successfully.',
-              'success',
-              6000
+            showContactSuccess(
+              data.message || 'Thank you! Your message has been sent successfully.'
             );
             contactForm.reset();
             clearErrors();
@@ -699,9 +682,29 @@
             showToast(errorMsg, 'error', 7000);
           }
         })
-        .catch((error) => {
+        .catch(async (error) => {
           clearTimeout(timeoutId);
           console.error('Contact API submission error:', error);
+
+          // Attempt EmailJS client delivery fallback if backend is offline
+          if (typeof emailjs !== 'undefined' && EMAILJS_CONFIG.serviceId) {
+            try {
+              await emailjs.send(EMAILJS_CONFIG.serviceId, EMAILJS_CONFIG.templateId, {
+                from_name: payload.name,
+                from_email: payload.email,
+                service_interest: payload.serviceInterest,
+                subject: payload.subject,
+                message: payload.message
+              });
+              showContactSuccess('Thank you! Your message has been sent successfully.');
+              contactForm.reset();
+              clearErrors();
+              return;
+            } catch (emailErr) {
+              console.warn('EmailJS fallback error:', emailErr);
+            }
+          }
+
           if (error.name === 'AbortError') {
             showToast(
               'Request timed out. Please check if the Spring Boot backend is running on port 8080.',
@@ -723,4 +726,34 @@
     });
   }
 
+  // ==========================================================================
+  // TYPED.JS HERO ROLE ANIMATION
+  // ==========================================================================
+  function initTypedRole() {
+    const typedTarget = document.getElementById('typed-role');
+    if (!typedTarget) return;
+
+    if (typeof Typed !== 'undefined') {
+      try {
+        new Typed('#typed-role', {
+          strings: [
+            'Software Developer',
+            'Java Full Stack Engineer',
+            'Backend & REST API Specialist'
+          ],
+          typeSpeed: 50,
+          backSpeed: 30,
+          backDelay: 2000,
+          loop: true
+        });
+      } catch (err) {
+        console.warn('Typed.js initialization failed:', err);
+      }
+    }
+  }
+
+  initTypedRole();
+
 })();
+
+
